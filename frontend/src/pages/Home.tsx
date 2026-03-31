@@ -68,76 +68,78 @@ const Home: React.FC = () => {
       {/* Removemos o color="dark" nativo pra usar nosso CSS customizado e homogêneo */}
       <IonContent className="ion-padding custom-content">
         
-        {/* Formulário permite dar Tab e apertar Enter nativamente */}
-        <form onSubmit={handleSubmit}>
-          <IonCard className="custom-card">
-            <IonCardHeader>
-              <IonCardTitle>Dados da Rede</IonCardTitle>
-            </IonCardHeader>
-            <IonCardContent>
-              <IonItem lines="none" className="custom-input-item">
-                <IonInput 
-                  label="Endereço IPv4:" 
-                  labelPlacement="floating" 
-                  placeholder="Exemplo: 192.168.0.1" 
-                  value={ip} 
-                  onIonInput={(e: any) => setIp(e.target.value)} 
-                />
-              </IonItem>
-              
-              <IonItem lines="none" className="custom-input-item" style={{ marginTop: '10px' }}>
-                <IonInput 
-                  label="CIDR (Prefixo):" 
-                  labelPlacement="floating" 
-                  type="number" 
-                  placeholder="Exemplo: 24" 
-                  value={prefixo} 
-                  onIonInput={(e: any) => setPrefixo(e.target.value)} 
-                />
-              </IonItem>
-
-              {/* Botão com type="submit" para funcionar com o Enter do form */}
-              <IonButton 
-                expand="block" 
-                type="submit" 
-                className="custom-button"
-              >
-                Calcular
-              </IonButton>
-            </IonCardContent>
-          </IonCard>
-        </form>
-
-        {resultado !== null && (
-          <div className="results-wrapper">
+        <div className="main-container">
+          {/* Formulário permite dar Tab e apertar Enter nativamente */}
+          <form onSubmit={handleSubmit}>
             <IonCard className="custom-card">
               <IonCardHeader>
-                <IonCardTitle>Dados Decimais</IonCardTitle>
+                <IonCardTitle>Dados da Rede</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
-                <p><strong>IP Address:</strong> {resultado.ip_address}</p>
-                <p><strong>Subnet Mask:</strong> {resultado.subnet_mask}</p>
-                <p><strong>Network Bits:</strong> {resultado.network_bits}</p>
-                <p><strong>Host Bits:</strong> {resultado.host_bits}</p>
-                <p><strong>Network Address:</strong> {resultado.network_address}</p>
-                <p><strong>Broadcast Address:</strong> {resultado.broadcast_address}</p>
-                <p><strong>Host Range:</strong> {resultado.host_range}</p>
-              </IonCardContent>
-            </IonCard>
+                <IonItem lines="none" className="custom-input-item">
+                  <IonInput 
+                    label="Endereço IPv4:" 
+                    labelPlacement="floating" 
+                    placeholder="Exemplo: 192.168.0.1" 
+                    value={ip} 
+                    onIonInput={(e: any) => setIp(e.target.value)} 
+                  />
+                </IonItem>
+                
+                <IonItem lines="none" className="custom-input-item" style={{ marginTop: '10px' }}>
+                  <IonInput 
+                    label="CIDR (Prefixo):" 
+                    labelPlacement="floating" 
+                    type="number" 
+                    placeholder="Exemplo: 24" 
+                    value={prefixo} 
+                    onIonInput={(e: any) => setPrefixo(e.target.value)} 
+                  />
+                </IonItem>
 
-            <IonCard className="custom-card">
-              <IonCardHeader>
-                <IonCardTitle>Dados Binários</IonCardTitle>
-              </IonCardHeader>
-              <IonCardContent>
-                <p><strong>IP:</strong> <span className="binary-text">{resultado.ip_binary}</span></p>
-                <p><strong>Máscara:</strong> <span className="binary-text">{resultado.subnet_mask_binary}</span></p>
-                <p><strong>Network:</strong> <span className="binary-text">{resultado.network_binary}</span></p>
-                <p><strong>Broadcast:</strong> <span className="binary-text">{resultado.broadcast_binary}</span></p>
+                {/* Botão com type="submit" para funcionar com o Enter do form */}
+                <IonButton 
+                  expand="block" 
+                  type="submit" 
+                  className="custom-button"
+                >
+                  Calcular
+                </IonButton>
               </IonCardContent>
             </IonCard>
-          </div>
-        )}
+          </form>
+
+          {resultado !== null && (
+            <div className="results-wrapper">
+              <IonCard className="custom-card">
+                <IonCardHeader>
+                  <IonCardTitle>Dados Decimais</IonCardTitle>
+                </IonCardHeader>
+                <IonCardContent>
+                  <p><strong>IP Address:</strong> {resultado.ip_address}</p>
+                  <p><strong>Subnet Mask:</strong> {resultado.subnet_mask}</p>
+                  <p><strong>Network Bits:</strong> {resultado.network_bits}</p>
+                  <p><strong>Host Bits:</strong> {resultado.host_bits}</p>
+                  <p><strong>Network Address:</strong> {resultado.network_address}</p>
+                  <p><strong>Broadcast Address:</strong> {resultado.broadcast_address}</p>
+                  <p><strong>Host Range:</strong> {resultado.host_range}</p>
+                </IonCardContent>
+              </IonCard>
+
+              <IonCard className="custom-card">
+                <IonCardHeader>
+                  <IonCardTitle>Dados Binários</IonCardTitle>
+                </IonCardHeader>
+                <IonCardContent>
+                  <p><strong>IP:</strong> <span className="binary-text">{resultado.ip_binary}</span></p>
+                  <p><strong>Máscara:</strong> <span className="binary-text">{resultado.subnet_mask_binary}</span></p>
+                  <p><strong>Network:</strong> <span className="binary-text">{resultado.network_binary}</span></p>
+                  <p><strong>Broadcast:</strong> <span className="binary-text">{resultado.broadcast_binary}</span></p>
+                </IonCardContent>
+              </IonCard>
+            </div>
+          )}
+        </div>
       </IonContent>
     </IonPage>
   );

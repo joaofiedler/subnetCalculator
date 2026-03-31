@@ -1,55 +1,63 @@
 /* Home.css */
 
 .custom-toolbar {
-  /* Fundo escuro pro cabecalho */
   --background: #121212;
   --color: #ffffff;
 }
 
 .custom-content {
-  /* Força o fundo escuro agradável na tela toda, tirando aquele "branco com preto" */
   --background: #181a1b; 
 }
 
+/* Novo: Limita a largura central pro app ficar bonito no 1080p e no celular */
+.main-container {
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 10px;
+}
+
 .custom-card {
-  /* Fundo do cartão */
   background: #242526; 
-  /* Bordas arredondadas que você pediu! */
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
-  padding: 5px;
+  margin-bottom: 25px;
+  padding: 10px; /* Aumentar o padding interno */
 }
 
 .custom-card ion-card-title {
   color: #e4e6eb;
   font-weight: 600;
-  font-size: 1.3rem;
+  /* Novo: Aumentando bastante o tamanho do título */
+  font-size: 1.6rem;
 }
 
 .custom-card p {
   color: #b0b3b8;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 10px 0;
+  /* Novo: Textos bem maiores e com entrelinhas boas pra ler de longe */
+  font-size: 1.15rem; 
+  line-height: 1.8;
+  margin: 12px 0;
 }
 
 .custom-card strong {
   color: #e4e6eb;
 }
 
-/* Modificações específicas para os inputs ficarem redondinhos */
 .custom-input-item {
   --background: #3A3B3C;
   --border-radius: 12px;
   --color: #ffffff;
   --placeholder-color: #a0a0a0;
   border-radius: 12px;
+  /* Novo: Aumentando a fonte do Input pro layout acompanhado */
+  font-size: 1.15rem;
 }
 
-/* Botão com um azul agradável e arredondado */
 .custom-button {
-  margin-top: 25px;
+  margin-top: 30px;
+  /* Novo: Botão mais parrudo */
+  height: 50px;
+  font-size: 1.1rem;
   --border-radius: 12px;
   --background: #4A90E2; 
   --background-hover: #357ABD;
@@ -58,12 +66,26 @@
   letter-spacing: 0.5px;
 }
 
-/* Fonte de computador para os bits binários ficarem legíveis */
 .binary-text {
   font-family: monospace;
   color: #4A90E2; 
+  /* Novo: Binários maiores também */
+  font-size: 1.2rem;
   word-wrap: break-word;
   background-color: rgba(0,0,0,0.2);
-  padding: 2px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
+}
+
+/* Responsividade: Se for tela bem pequena (celular), ajusta um teco do tamanho */
+@media (max-width: 768px) {
+  .custom-card p, .custom-input-item {
+    font-size: 1rem;
+  }
+  .custom-card ion-card-title {
+    font-size: 1.3rem;
+  }
+  .binary-text {
+    font-size: 1.05rem;
+  }
 }
