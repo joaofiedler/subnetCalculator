@@ -32,3 +32,5 @@ Recebe IP + CIDR, calcula e retorna:
 - range de hosts
 - subnet mask
 - versão em binário
+
+![Preview da aplicação](./preview.png)
