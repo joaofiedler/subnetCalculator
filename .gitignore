@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.env
+.venv
+
+# Frontend já tem o próprio .gitignore dentro da pasta dele
+node_modules/
+dist/
+
+# Logs e Misc
+*.log
+.DS_Store
